@@ -1,0 +1,189 @@
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                class="fas fa-user-secret me-2"></i>E-Commerce</div>
+        <div class="list-group list-group-flush my-3">
+            <a [routerLink]="['/']" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                    class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a [routerLink]="['/users']"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-project-diagram me-2"></i>Users</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-chart-line me-2"></i>Analytics</a>
+            <a [routerLink]="['/categorie']"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-paperclip me-2"></i>Categories</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-shopping-cart me-2"></i>Store Mng</a>
+            <a [routerLink]="['/produit']"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-gift me-2"></i>Products</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-comment-dots me-2"></i>Chat</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-map-marker-alt me-2"></i>Outlet</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                    class="fas fa-power-off me-2"></i>Logout</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" [routerLink]="['/']"> Dashboard</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/users']">Users</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/categorie']" >Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/produit']">Produits</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                <h2 class="fs-2 m-0">Dashboard</h2>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i>John Doe
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> -->
+<!-- </nav> -->
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-8 mt-5">
+                    <div class="card border-0 shadow p-3">
+                        <div class="form-floating mb-3 tetx-center">
+                            <h5 class="text-center text-warning">Ajoutes des produits</h5>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="lastName" name="lastName"
+                                [(ngModel)]="last_name">
+                            <label for="lastName">Last name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="prix">
+                            <label for="email">Prix</label>
+                        </div>
+                        <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="Categorie">
+                            <option selected>Entrer votre choix de categorie</option>
+                            <option *ngFor="let categorie of categorieList">{{categorie.last_name}}</option>
+
+                        </select>
+
+                        <button type="button" class="btn btn-outline-info" (click)="addProduit()">Ajouter un
+                            produit</button>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-2">
+                    <h5 class="text-danger"> Liste des Produits</h5>
+                    <table class="table table-hover table-dark">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Last name</th>
+                                <th scope="col">Prix</th>
+                                <th scope="col">categorie</th>
+                                <th scope="col">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let produitnet of  produitList">
+                                <td>{{produitnet.last_name}}</td>
+                                <td>{{produitnet.prix}}</td>
+                                <td>{{produitnet.Categorie}}</td>
+                                <td>
+                                    <button class="btn bouton btn-outline-danger"
+                                        (click)="deleteProduit(produitnet)"><i
+                                            class="fas fa-trash-alt"></i></button>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-outline-danger bouton b-danger" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" (click)="getAllModalProduit(produitnet)">
+                                        <i class="fas fa-pencil-alt b-danger ml-2 "></i>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal modale fade  b-danger" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modification
+                                                    </h1>
+                                                    <button type="button" class="btn-close"
+                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label"></label>
+                                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="enter last_name"[(ngModel)]="last_name">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label"></label>
+                                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="enter prix" [(ngModel)]="prix">
+                                                      </div>
+                                                      <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="Categorie">
+                                                        <option selected>Entrer votre choix de categorie</option>
+                                                        <option *ngFor="let categorie of categorieList">{{categorie.last_name}}</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-danger"
+                                                        data-bs-dismiss="modal">Fermer</button>
+                                                    <button type="button" data-bs-dismiss="modal" (click)="updateProduit()" class="btn btn-outline-danger">
+                                                        Update
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
