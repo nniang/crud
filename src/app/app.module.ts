@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { UsersComponent } from './component/users/users.component';
 import { ProduitComponent } from './component/produit/produit.component';
 import { CategorieComponent } from './component/categorie/categorie.component';
-import { SidebarModule } from 'ng-sidebar';
+// import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { SidebarModule } from 'ng-sidebar';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
-    SidebarModule.forRoot()
+    // SidebarModule.forRoot()
     // BrowerAnimations//
 
   ],
